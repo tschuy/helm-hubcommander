@@ -1,0 +1,6 @@
+name: hubcommander
+description: A user-extendable Slack bot for GitHub organization management
+version: 0.1.0
+sources:
+  - https://github.com/Netflix/hubcommander
+appVersion: 0.2.0
