@@ -4,4 +4,3 @@ metadata:
   name: hubcommander-config
 data:
   config.py: {{ .Files.Get "files/config.py" | quote }}
-  plugin.py: {{ .Files.Get "files/plugin.py" | quote }}

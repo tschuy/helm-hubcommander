@@ -16,7 +16,8 @@ spec:
       - name: HUBCOMMANDER_USER_COMMANDS
         value: {{ .Values.user_commands | quote }}
       volumeMounts:
-      - mountPath: /rtmbot/hubcommander/github
+      - mountPath: /rtmbot/hubcommander/github/config.py
+        subPath: config.py
         name: hubcommander-github-config
   volumes:
   - name: hubcommander-github-config
