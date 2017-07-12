@@ -2,10 +2,14 @@ slack_token: "abc"
 github_token: "123"
 
 github_orgs: |-
-  {"org-name": {
+  {
+    "organization-name": {
       "public_only": true,
       "aliases": [],
       "new_repo_teams": {
-        "id": "1234",
+        "id": "1234567",
         "perm": "push",
-        "name": "my-cool-new-test-team" }}}
+        "name": "example-team-name"
+      }
+    }
+  }

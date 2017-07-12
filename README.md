@@ -10,9 +10,13 @@ Config
 * `github_token`: a bot token with the proper [Github rights](https://github.com/Netflix/hubcommander/blob/develop/docs/installation.md#github-configuration-api-token)
 * `github_orgs`: a JSON string containing your [organization information](https://github.com/Netflix/hubcommander/blob/master/github/config.py)
 
+Recommended test deploy:
+
+* create `organizations.yaml` with organization configuration
+* create `secrets.yaml` with `slack_token` and `github_token`
+* `helm install . -f secret-values.yaml -f organizations.yaml`
+
 TODO
 ----
 
-* make configuration less annoying / ability to use YAML instead of a JSON string
-* secrets!
 * Add some sort of authentication plugin that allows for better access control

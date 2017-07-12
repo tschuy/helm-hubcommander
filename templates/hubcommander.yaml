@@ -8,9 +8,15 @@ spec:
       image: netflixoss/hubcommander:0.2.0
       env:
       - name: SLACK_TOKEN
-        value: {{ .Values.slack_token }}
+        valueFrom:
+          secretKeyRef:
+            name: hubcommander-secrets
+            key: slack_token
       - name: GITHUB_TOKEN
-        value: {{ .Values.github_token }}
+        valueFrom:
+          secretKeyRef:
+            name: hubcommander-secrets
+            key: github_token
       - name: HUBCOMMANDER_ORGS
         value: {{ .Values.github_orgs | quote }}
       - name: HUBCOMMANDER_USER_COMMANDS
