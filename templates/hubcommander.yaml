@@ -17,6 +17,8 @@ spec:
           secretKeyRef:
             name: hubcommander-secrets
             key: github_token
+      - name: ROLLCONTROL_CONFIG
+        value: /rtmbot/hubcommander/auth_plugins/rollcontrol/config.yaml
       - name: HUBCOMMANDER_ORGS
         value: {{ .Values.github_orgs | quote }}
       - name: HUBCOMMANDER_USER_COMMANDS

@@ -13,3 +13,13 @@ github_orgs: |-
       }
     }
   }
+
+user_commands: |-
+  {
+      "!CommandWithAuth": {
+          "auth": {
+              "plugin": "rollcontrol"
+          }
+      },
+      "!DisabledCommand": {"enabled": false}
+  }

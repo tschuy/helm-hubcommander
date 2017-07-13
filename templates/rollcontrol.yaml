@@ -5,3 +5,4 @@ metadata:
 data:
   plugin.py: {{ .Files.Get "files/rollcontrol.py" | quote }}
   __init__.py: ""
+  config.yaml: {{ .Values.rollcontrol_config | quote }}
