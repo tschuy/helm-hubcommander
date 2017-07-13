@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hubcommander-auth-plugins
+data:
+  enabled_plugins.py: {{ .Files.Get "files/enabled_auth_plugins.py" | quote }}
+  __init__.py: ""

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hubcommander-rollcontrol
+data:
+  plugin.py: {{ .Files.Get "files/rollcontrol.py" | quote }}
+  __init__.py: ""

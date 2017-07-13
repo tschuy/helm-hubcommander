@@ -25,7 +25,18 @@ spec:
       - mountPath: /rtmbot/hubcommander/github/config.py
         subPath: config.py
         name: hubcommander-github-config
+      - mountPath: /rtmbot/hubcommander/auth_plugins/enabled_plugins.py
+        subPath: enabled_plugins.py
+        name: hubcommander-auth-plugins
+      - mountPath: /rtmbot/hubcommander/auth_plugins/rollcontrol
+        name: hubcommander-rollcontrol
   volumes:
   - name: hubcommander-github-config
     configMap:
       name: hubcommander-config
+  - name: hubcommander-rollcontrol
+    configMap:
+      name: hubcommander-rollcontrol
+  - name: hubcommander-auth-plugins
+    configMap:
+      name: hubcommander-auth-plugins
