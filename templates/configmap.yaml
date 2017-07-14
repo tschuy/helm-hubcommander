@@ -1,6 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: hubcommander-config
-data:
-  config.py: {{ .Files.Get "files/config.py" | quote }}

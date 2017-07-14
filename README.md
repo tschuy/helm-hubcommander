@@ -17,9 +17,3 @@ Recommended test deploy:
 * create `organizations.yaml` with organization and command configuration
 * create `secrets.yaml` with `slack_token` and `github_token`
 * `helm install . -f secret-values.yaml -f organizations.yaml`
-
-To-do
------
-
-* move `rollcontrol` into a fork of HubCommander, or at least out of the helm chart
-* investigate way to more generically parse permissions in `rollcontrol`

@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: hubcommander
-      image: netflixoss/hubcommander:0.2.0
+      image: quay.io/evan_tschuy/hubcommander:0.1.1
       env:
       - name: SLACK_TOKEN
         valueFrom:
@@ -24,21 +24,10 @@ spec:
       - name: HUBCOMMANDER_USER_COMMANDS
         value: {{ .Values.user_commands | quote }}
       volumeMounts:
-      - mountPath: /rtmbot/hubcommander/github/config.py
-        subPath: config.py
-        name: hubcommander-github-config
-      - mountPath: /rtmbot/hubcommander/auth_plugins/enabled_plugins.py
-        subPath: enabled_plugins.py
-        name: hubcommander-auth-plugins
-      - mountPath: /rtmbot/hubcommander/auth_plugins/rollcontrol
-        name: hubcommander-rollcontrol
+      - mountPath: /rtmbot/hubcommander/auth_plugins/rollcontrol/config.yaml
+        subPath: config.yaml
+        name: hubcommander-rollcontrol-config
   volumes:
-  - name: hubcommander-github-config
+  - name: hubcommander-rollcontrol-config
     configMap:
-      name: hubcommander-config
-  - name: hubcommander-rollcontrol
-    configMap:
-      name: hubcommander-rollcontrol
-  - name: hubcommander-auth-plugins
-    configMap:
-      name: hubcommander-auth-plugins
+      name: hubcommander-rollcontrol-config
