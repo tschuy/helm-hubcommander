@@ -5,7 +5,7 @@ metadata:
 spec:
   containers:
     - name: hubcommander
-      image: quay.io/evan_tschuy/hubcommander:0.1.1
+      image: quay.io/evan_tschuy/hubcommander:latest
       env:
       - name: SLACK_TOKEN
         valueFrom:
@@ -18,16 +18,15 @@ spec:
             name: hubcommander-secrets
             key: github_token
       - name: ROLLCONTROL_CONFIG
-        value: /rtmbot/hubcommander/auth_plugins/rollcontrol/config.yaml
+        value: /rtmbot/hubcommander/config/rollcontrol.yaml
       - name: HUBCOMMANDER_ORGS
-        value: {{ .Values.github_orgs | quote }}
+        value: /rtmbot/hubcommander/config/organizations.json
       - name: HUBCOMMANDER_USER_COMMANDS
-        value: {{ .Values.user_commands | quote }}
+        value: /rtmbot/hubcommander/config/user_commands.json
       volumeMounts:
-      - mountPath: /rtmbot/hubcommander/auth_plugins/rollcontrol/config.yaml
-        subPath: config.yaml
-        name: hubcommander-rollcontrol-config
+      - mountPath: /rtmbot/hubcommander/config
+        name: hubcommander-config
   volumes:
-  - name: hubcommander-rollcontrol-config
+  - name: hubcommander-config
     configMap:
-      name: hubcommander-rollcontrol-config
+      name: hubcommander-config

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hubcommander-config
+data:
+  rollcontrol.yaml: {{ .Values.rollcontrol_config | quote }}
+  organizations.json: {{ .Values.github_orgs | quote }}
+  user_commands.json: {{ .Values.user_commands | quote }}
