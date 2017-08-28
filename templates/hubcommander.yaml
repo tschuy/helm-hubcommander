@@ -7,6 +7,8 @@ spec:
     - name: hubcommander
       image: quay.io/evan_tschuy/hubcommander:latest
       env:
+      - name: PYTHONUNBUFFERED
+        value: "true"
       - name: SLACK_TOKEN
         valueFrom:
           secretKeyRef:
@@ -17,6 +19,8 @@ spec:
           secretKeyRef:
             name: hubcommander-secrets
             key: github_token
+      - name: IMPLICIT_COMMAND_ENABLE
+        value: "false"
       - name: ROLLCONTROL_CONFIG
         value: /rtmbot/hubcommander/config/rollcontrol.yaml
       - name: HUBCOMMANDER_ORGS
